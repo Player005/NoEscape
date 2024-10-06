@@ -10,6 +10,8 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
+import static net.player005.no_escape.client.NoEscapeClient.blockActions;
+
 @Mixin(value = Minecraft.class)
 public abstract class MixinNoPause {
 
@@ -17,14 +19,14 @@ public abstract class MixinNoPause {
 
     @Inject(method = "pauseGame", at = @At("HEAD"), cancellable = true)
     public void noPause(boolean bl, CallbackInfo ci) {
-        if (NoEscapeClient.blockActions()) {
+        if (blockActions()) {
             ci.cancel();
         }
     }
 
     @Inject(method = {"destroy", "stop"}, at = @At("HEAD"), cancellable = true)
     public void noClosingWindow(@NotNull CallbackInfo ci) {
-        if (NoEscapeClient.blockActions()) {
+        if (blockActions()) {
             ci.cancel();
         }
     }
