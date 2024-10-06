@@ -6,7 +6,7 @@ This mod **prevents** the user from:
  - closing Minecraft (using alt + f4 or the button in the main menu)
  - switching to a different window (i.e. using alt + tab)
 
-There is a hotkey to bypass all mentioned limitations: left alt + right shift.
+There is a **hotkey** to bypass all mentioned limitations: **left alt + right shift**.
 While holding these two keys, You can open the escape menu or exit minecraft. 
 
 
