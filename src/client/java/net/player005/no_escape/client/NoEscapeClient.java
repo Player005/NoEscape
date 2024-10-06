@@ -1,15 +1,10 @@
 package net.player005.no_escape.client;
 
 import com.mojang.blaze3d.platform.InputConstants;
-import net.fabricmc.api.ClientModInitializer;
 import net.minecraft.client.Minecraft;
 import org.lwjgl.glfw.GLFW;
 
-public class NoEscapeClient implements ClientModInitializer {
-
-    @Override
-    public void onInitializeClient() {
-    }
+public class NoEscapeClient {
 
     public static boolean blockActions() {
         var window = Minecraft.getInstance().getWindow().getWindow();
