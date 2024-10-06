@@ -2,7 +2,6 @@ package net.player005.no_escape.client.mixin;
 
 import com.mojang.blaze3d.platform.Window;
 import net.minecraft.client.Minecraft;
-import net.player005.no_escape.client.NoEscapeClient;
 import org.jetbrains.annotations.NotNull;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
