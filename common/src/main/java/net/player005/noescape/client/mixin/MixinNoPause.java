@@ -1,4 +1,4 @@
-package net.player005.no_escape.client.mixin;
+package net.player005.noescape.client.mixin;
 
 import com.mojang.blaze3d.platform.Window;
 import net.minecraft.client.Minecraft;
@@ -9,7 +9,7 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
-import static net.player005.no_escape.client.NoEscapeClient.blockActions;
+import static net.player005.noescape.client.NoEscapeClient.blockActions;
 
 @Mixin(value = Minecraft.class)
 public abstract class MixinNoPause {

@@ -1,0 +1,14 @@
+modLoader = "javafml"
+loaderVersion = "*"
+license = "LGPL-3.0-or-later"
+
+[[mods]]
+modId = "no_escape"
+version = "${mod_version}"
+displayName = "No Escape"
+authors = "Player005" #optional
+
+description = '''Never leave Minecraft!'''
+
+[[mixins]]
+config = "no_escape.client.mixins.json"

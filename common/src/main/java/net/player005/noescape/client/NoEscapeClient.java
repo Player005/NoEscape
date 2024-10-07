@@ -1,4 +1,4 @@
-package net.player005.no_escape.client;
+package net.player005.noescape.client;
 
 import com.mojang.blaze3d.platform.InputConstants;
 import net.minecraft.client.Minecraft;
