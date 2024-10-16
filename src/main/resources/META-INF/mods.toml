@@ -1,6 +1,7 @@
 modLoader="lowcodefml"
-loaderVersion="[40,)"
+loaderVersion="[1,)"
 license="LGPL 3.0 or later"
+showAsResourcePack = false
 
 [[mods]]
 modId="no_escape"
@@ -8,3 +9,6 @@ version="${version}"
 displayName="No Escape"
 description="Disables leaving the world, quitting Minecraft or exiting fullscreen"
 authors="Player005"
+
+[[mixins]]
+config="no_escape.client.mixins.json"

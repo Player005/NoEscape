@@ -1,6 +1,7 @@
 modLoader="lowcodefml"
 loaderVersion="[1,)"
 license="LGPL 3.0 or later"
+showAsResourcePack = false
 
 [[mods]]
 modId="no_escape"
