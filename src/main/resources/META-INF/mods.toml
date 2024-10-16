@@ -1,0 +1,10 @@
+modLoader="lowcodefml"
+loaderVersion="[40,)"
+license="LGPL 3.0 or later"
+
+[[mods]]
+modId="no_escape"
+version="${version}"
+displayName="No Escape"
+description="Disables leaving the world, quitting Minecraft or exiting fullscreen"
+authors="Player005"
