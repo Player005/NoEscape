@@ -3,12 +3,14 @@
   "id": "no_escape",
   "version": "${version}",
   "name": "No Escape",
-  "description": "",
-  "authors": [],
+  "description": "Disables leaving the world, quitting Minecraft or exiting fullscreen",
+  "authors": [
+    "Player005"
+  ],
   "contact": {},
   "license": "LGPL-3.0",
-  "icon": "assets/no_escape/icon.png",
-  "environment": "*",
+  "icon": "assets/noescape/icon.webp",
+  "environment": "client",
   "entrypoints": {
   },
   "mixins": [
@@ -18,7 +20,7 @@
     }
   ],
   "depends": {
-    "fabricloader": ">=${loader_version}",
-    "minecraft": "${minecraft_version}"
+    "fabricloader": "*",
+    "minecraft": "*"
   }
 }
