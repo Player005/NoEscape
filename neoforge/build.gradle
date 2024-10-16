@@ -1,0 +1,99 @@
+plugins {
+    id 'idea'
+    id 'java-library'
+    id 'maven-publish'
+    id 'net.neoforged.moddev' version '2.0.42-beta'
+}
+
+version = mod_version
+group = mod_group_id
+
+repositories {
+    mavenLocal()
+}
+
+base {
+    archivesName = mod_id + "_forge"
+}
+
+java.toolchain.languageVersion = JavaLanguageVersion.of(21)
+
+neoForge {
+    // Specify the version of NeoForge to use.
+    version = project.neo_version
+
+    parchment {
+        mappingsVersion = project.parchment_mappings_version
+        minecraftVersion = project.parchment_minecraft_version
+    }
+
+    runs {
+        client {
+            client()
+
+            // Comma-separated list of namespaces to load gametests from. Empty = all namespaces.
+            systemProperty 'neoforge.enabledGameTestNamespaces', project.mod_id
+        }
+
+        server {
+            server()
+            programArgument '--nogui'
+            systemProperty 'neoforge.enabledGameTestNamespaces', project.mod_id
+        }
+
+        // applies to all the run configs above
+        configureEach {
+            // Recommended logging data for a userdev environment
+            // The markers can be added/remove as needed separated by commas.
+            // "SCAN": For mods scan.
+            // "REGISTRIES": For firing of registry events.
+            // "REGISTRYDUMP": For getting the contents of all registries.
+            systemProperty 'forge.logging.markers', 'REGISTRIES'
+
+            // Recommended logging level for the console
+            // You can set various levels here.
+            // Please read: https://stackoverflow.com/questions/2031163/when-to-use-the-different-log-levels
+            logLevel = org.slf4j.event.Level.DEBUG
+        }
+    }
+
+    mods {
+        "${mod_id}" {
+            sourceSet(sourceSets.main)
+        }
+    }
+}
+
+dependencies {
+    //compileOnly(rootProject.sourceSets.main.output)
+    implementation(rootProject.sourceSets.main.allSource)
+}
+
+// Example configuration to allow publishing using the maven-publish plugin
+publishing {
+    publications {
+        register('mavenJava', MavenPublication) {
+            from components.java
+        }
+    }
+    repositories {
+        maven {
+            url "file://${project.projectDir}/repo"
+        }
+    }
+}
+
+tasks.jar {
+    dependsOn(rootProject.tasks.named("processResources"))
+    destinationDirectory = rootDir.toPath().resolve("build").resolve("libs").toFile()
+    from(rootProject.sourceSets.main.output.classesDirs)
+    from(rootProject.sourceSets.main.output.resourcesDir)
+}
+
+// IDEA no longer automatically downloads sources/javadoc jars for dependencies, so we need to explicitly enable the behavior.
+idea {
+    module {
+        downloadSources = true
+        downloadJavadoc = true
+    }
+}
