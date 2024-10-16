@@ -8,7 +8,7 @@ version = "${mod_version}"
 displayName = "No Escape"
 authors = "Player005" #optional
 
-description = '''Disables leaving the world, quitting Minecraft or exiting fullscreen.'''
+description = '''Never leave Minecraft!'''
 
 [[mixins]]
 config = "no_escape.client.mixins.json"
