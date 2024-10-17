@@ -85,9 +85,11 @@ publishing {
 
 tasks.jar {
     dependsOn(rootProject.tasks.named("processResources"))
-    destinationDirectory = rootDir.toPath().resolve("build").resolve("libs").toFile()
+    destinationDirectory = rootDir.toPath().resolve("build").resolve("libs_forge").toFile()
     from(rootProject.sourceSets.main.output.classesDirs)
-    from(rootProject.sourceSets.main.output.resourcesDir)
+    from(rootProject.sourceSets.main.output.resourcesDir) {
+        exclude("fabric.mod.json")
+    }
 }
 
 // IDEA no longer automatically downloads sources/javadoc jars for dependencies, so we need to explicitly enable the behavior.
