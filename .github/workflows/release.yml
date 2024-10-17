@@ -7,6 +7,8 @@ on:
 
 jobs:
   build:
+    permissions:
+      contents: write
     runs-on: ubuntu-latest
     steps:
       - name: Checkout sources
@@ -35,6 +37,8 @@ jobs:
           modrinth-id: 9u8AzPCN
           modrinth-token: ${{ secrets.MODRINTH_TOKEN }}
 
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+
           curseforge-id: 1117086
           curseforge-token: ${{ secrets.CURSEFORGE_TOKEN }}
 
@@ -50,10 +54,13 @@ jobs:
           modrinth-id: 9u8AzPCN
           modrinth-token: ${{ secrets.MODRINTH_TOKEN }}
 
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+
           curseforge-id: 1117086
           curseforge-token: ${{ secrets.CURSEFORGE_TOKEN }}
 
           files: build/libs_forge/!(*-@(dev|sources|all)).jar
+          game-versions: ">=1.20"
 
           version-type: release
           loaders: forge neoforge
