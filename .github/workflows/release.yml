@@ -29,7 +29,7 @@ jobs:
       - name: Execute Gradle build
         run: ./gradlew build
 
-      - name: Upload artifacts to Modrinth and GitHub
+      - name: Upload fabric artifacts to Modrinth and GitHub
         uses: Kir-Antipov/mc-publish@v3.3
         with:
           modrinth-id: 9u8AzPCN
@@ -43,4 +43,20 @@ jobs:
 
           version-type: release
           loaders: fabric quilt
+          version-resolver: latest
+
+      - name: Upload forge artifacts to Modrinth and GitHub
+        uses: Kir-Antipov/mc-publish@v3.3
+        with:
+          modrinth-id: 9u8AzPCN
+          modrinth-token: ${{ secrets.MODRINTH_TOKEN }}
+
+          curseforge-id: 1117086
+          curseforge-token: ${{ secrets.CURSEFORGE_TOKEN }}
+
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          files: build/libs_forge/!(*-@(dev|sources|all)).jar
+
+          version-type: release
+          loaders: forge neoforge
           version-resolver: latest
