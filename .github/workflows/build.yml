@@ -39,5 +39,5 @@ jobs:
       - name: Upload artifacts
         uses: actions/upload-artifact@v4
         with:
-          name: vegan-delight-fabric-artifacts-${{ steps.ref.outputs.branch }}
+          name: no-escape-artifacts-${{ steps.ref.outputs.branch }}
           path: build/libs/*.jar
